@@ -35,12 +35,12 @@ app.use(express.json({ limit: "10mb" }))
 app.use(express.urlencoded({ extended: true }))
 
 // Routes
-app.use("/api/bookings", bookingRoutes)
-app.use("/api/admin", adminRoutes)
-app.use("/api/setup", setupRoutes) // Add setup routes
+app.use("/bookings", bookingRoutes)
+app.use("/admin", adminRoutes)
+app.use("/setup", setupRoutes) // Add setup routes
 
 // Health check endpoint
-app.get("/api/health", (req, res) => {
+app.get("/health", (req, res) => {
   res.status(200).json({
     status: "OK",
     message: "QuickFix API is running",
