@@ -230,19 +230,7 @@ const AdminLogin = () => {
             </p>
           </div>
         </div>
-
-        {/* Demo Credentials */}
-        <div className="card p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
-          <h3 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">Default Credentials</h3>
-          <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
-            <p>
-              <strong>Username:</strong> admin
-            </p>
-            <p>
-              <strong>Password:</strong> admin123456
-            </p>
-          </div>
-        </div>
+      
 
         {/* Error Display */}
         {lastError && (
