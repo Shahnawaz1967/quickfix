@@ -31,7 +31,7 @@ const api = axios.create({
 // Add request interceptor for debugging
 api.interceptors.request.use(
   (config) => {
-    console.log(`🚀 API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`)
+    console.log(` API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`)
 
     // Add auth token for admin routes
     const token = localStorage.getItem("quickfix-admin-token")
@@ -41,7 +41,7 @@ api.interceptors.request.use(
     return config
   },
   (error) => {
-    console.error("❌ Request Error:", error)
+    console.error("Request Error:", error)
     return Promise.reject(error)
   },
 )
@@ -53,12 +53,12 @@ api.interceptors.response.use(
     return response.data
   },
   (error) => {
-    console.error("❌ API Error:", error)
+    console.error("API Error:", error)
 
     // Handle different error types
     if (error.code === "ECONNREFUSED" || error.code === "ERR_NETWORK") {
       const message = "Cannot connect to server. Please make sure the backend is running on the correct port."
-      console.error("🔌 Connection Error:", message)
+      console.error("Connection Error:", message)
       return Promise.reject(new Error(message))
     }
 
@@ -79,10 +79,10 @@ api.interceptors.response.use(
 export const testConnection = async () => {
   try {
     const response = await api.get("/health")
-    console.log("✅ Backend connection successful:", response)
+    console.log(" Backend connection successful:", response)
     return { success: true, data: response }
   } catch (error) {
-    console.error("❌ Backend connection failed:", error.message)
+    console.error("Backend connection failed:", error.message)
     return { success: false, error: error.message }
   }
 }
